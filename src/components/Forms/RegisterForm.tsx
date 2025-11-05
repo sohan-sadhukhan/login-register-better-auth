@@ -1,10 +1,10 @@
 "use client";
 
-import { RegisterType } from "@/lib/type";
-import { registerSchema } from "@/lib/zodSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2, Lock } from "lucide-react";
 import { Controller, useForm } from "react-hook-form";
+import { RegisterType } from "../../lib/type";
+import { registerSchema } from "../../lib/zodSchema";
 import { Button } from "../shadcnui/button";
 import { Field, FieldError, FieldGroup, FieldLabel } from "../shadcnui/field";
 import { Input } from "../shadcnui/input";
