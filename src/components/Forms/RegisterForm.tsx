@@ -1,5 +1,6 @@
 "use client";
 
+import userSignUp from "@/hooks/userSignUp";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2, Lock } from "lucide-react";
 import { Controller, useForm } from "react-hook-form";
@@ -23,7 +24,16 @@ const RegisterForm = () => {
 
 	const registerHandeler = async (rData: RegisterType) => {
 		await new Promise((r) => setTimeout(r, 1500));
-		console.log(rData);
+
+		const { isSuccess, message } = await userSignUp(rData);
+
+		if (!isSuccess) {
+			console.log(message);
+		}
+
+		if (isSuccess) {
+			console.log(message);
+		}
 	};
 	return (
 		<form
