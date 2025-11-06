@@ -3,7 +3,9 @@
 import userSignUp from "@/hooks/userSignUp";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2, Lock } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { Controller, useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 import { RegisterType } from "../../lib/type";
 import { registerSchema } from "../../lib/zodSchema";
 import { Button } from "../shadcnui/button";
@@ -11,6 +13,8 @@ import { Field, FieldError, FieldGroup, FieldLabel } from "../shadcnui/field";
 import { Input } from "../shadcnui/input";
 
 const RegisterForm = () => {
+	const { push } = useRouter();
+
 	const rForm = useForm<RegisterType>({
 		resolver: zodResolver(registerSchema),
 		defaultValues: {
@@ -28,17 +32,20 @@ const RegisterForm = () => {
 		const { isSuccess, message } = await userSignUp(rData);
 
 		if (!isSuccess) {
-			console.log(message);
+			toast.error(message);
 		}
 
 		if (isSuccess) {
-			console.log(message);
+			toast.success(message);
+
+			push("/auth/login");
 		}
 	};
 	return (
 		<form
 			id="form-rhf-input"
-			onSubmit={rForm.handleSubmit(registerHandeler)}>
+			onSubmit={rForm.handleSubmit(registerHandeler)}
+			noValidate>
 			<FieldGroup>
 				<Controller
 					name="name"

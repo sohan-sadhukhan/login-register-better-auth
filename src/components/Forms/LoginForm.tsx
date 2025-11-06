@@ -1,8 +1,10 @@
 "use client";
 
+import userSignIn from "@/hooks/userSignIn";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2, Lock } from "lucide-react";
 import { Controller, useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 import { LoginType } from "../../lib/type";
 import { loginSchema } from "../../lib/zodSchema";
 import { Button } from "../shadcnui/button";
@@ -21,7 +23,16 @@ const LoginForm = () => {
 
 	const loginHandeler = async (lData: LoginType) => {
 		await new Promise((r) => setTimeout(r, 1500));
-		console.log("Login Data:", lData);
+
+		const { isSuccess, message } = await userSignIn(lData);
+
+		if (!isSuccess) {
+			toast.error(message);
+		}
+
+		if (isSuccess) {
+			toast.success(message);
+		}
 	};
 	return (
 		<form
