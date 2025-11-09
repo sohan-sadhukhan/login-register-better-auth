@@ -1,5 +1,5 @@
+import ThemeToggleButton from "@/components/ThemeToggleButton";
 import Link from "next/link";
-import ThemeToggleButton from "../ThemeToggleButton";
 
 const Header = () => {
 	return (
@@ -11,12 +11,12 @@ const Header = () => {
 					<h1
 						className="text-2xl font-semibold"
 						aria-label="App Name">
-						NSP App
+						Auth App
 					</h1>
 				</Link>
 
 				<nav className="flex items-center gap-4">
-					<Link href={"/"}>Home</Link>
+					<Link href={"/studio"}>Dashbord</Link>
 
 					<ThemeToggleButton />
 				</nav>

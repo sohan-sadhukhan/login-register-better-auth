@@ -1,4 +1,4 @@
-import LoginForm from "@/components/Forms/LoginForm";
+import RegisterForm from "@/components/Forms/RegisterForm";
 import {
 	Card,
 	CardContent,
@@ -11,37 +11,40 @@ import { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-	title: "Login | Login-Register-Better-Auth",
+	title: "Register | Login-Register-Better-Auth",
 	description:
-		"Login to your account with the authentication system built using Better Auth.",
+		"Register to your account with the authentication system built using Better Auth.",
 };
 
 const page = () => {
 	return (
-		<section className="grid h-[90dvh] place-items-center">
+		<section className="mt-10 grid h-[90dvh] place-items-center">
 			<Card className="w-sm">
 				<CardHeader className="gap-3">
 					<CardTitle className="text-center text-3xl font-semibold">
-						Welcome back
+						Create Account
 					</CardTitle>
 
 					<CardDescription className="text-center text-lg leading-5">
-						Enter your email below to login to your account
+						Enter your details below to register your account.
 					</CardDescription>
 				</CardHeader>
 
 				<CardContent>
-					<LoginForm />
+					<RegisterForm />
 				</CardContent>
 
-				<CardFooter className="justify-center">
-					Don&apos;t have an account?
-					<Link
-						href={"/auth/register"}
-						className="mx-1 text-blue-600 underline">
-						Create
-					</Link>
-					now
+				<CardFooter className="grid grid-flow-row place-items-center">
+					Already have an account?
+					<span>
+						Please
+						<Link
+							href={"/auth/login"}
+							className="mx-2 underline hover:text-blue-600">
+							SignIn
+						</Link>
+						now.
+					</span>
 				</CardFooter>
 			</Card>
 		</section>
