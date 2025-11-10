@@ -40,7 +40,7 @@ const page = () => {
 						Please
 						<Link
 							href={"/auth/login"}
-							className="mx-2 underline hover:text-blue-600">
+							className="mx-2 text-blue-600 underline">
 							SignIn
 						</Link>
 						now.

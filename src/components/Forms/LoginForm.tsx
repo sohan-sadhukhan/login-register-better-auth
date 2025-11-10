@@ -3,6 +3,7 @@
 import userSignIn from "@/hooks/userSignIn";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2, Lock } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { Controller, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { LoginType } from "../../lib/type";
@@ -12,6 +13,8 @@ import { Field, FieldError, FieldGroup, FieldLabel } from "../shadcnui/field";
 import { Input } from "../shadcnui/input";
 
 const LoginForm = () => {
+	const { push } = useRouter();
+
 	const lForm = useForm<LoginType>({
 		resolver: zodResolver(loginSchema),
 		defaultValues: {
@@ -32,6 +35,10 @@ const LoginForm = () => {
 
 		if (isSuccess) {
 			toast.success(message);
+
+			lForm.reset();
+
+			push("/studio");
 		}
 	};
 	return (
@@ -49,7 +56,7 @@ const LoginForm = () => {
 								{...field}
 								id="lForm-rhf-input-email"
 								aria-invalid={fieldState.invalid}
-								placeholder="Email"
+								placeholder="Enter your email"
 								autoComplete="Email"
 							/>
 
@@ -70,7 +77,7 @@ const LoginForm = () => {
 								{...field}
 								id="lForm-rhf-input-password"
 								aria-invalid={fieldState.invalid}
-								placeholder="password"
+								placeholder="Enter your password"
 								autoComplete="password"
 							/>
 

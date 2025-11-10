@@ -1,3 +1,4 @@
+import LogoutButton from "@/components/customui/LogoutButton";
 import ThemeToggleButton from "@/components/ThemeToggleButton";
 import Link from "next/link";
 
@@ -17,6 +18,8 @@ const Header = () => {
 
 				<nav className="flex items-center gap-4">
 					<Link href={"/studio"}>Dashbord</Link>
+
+					<LogoutButton />
 
 					<ThemeToggleButton />
 				</nav>

@@ -38,7 +38,7 @@ const page = () => {
 					Don&apos;t have an account?
 					<Link
 						href={"/auth/register"}
-						className="mx-1 underline hover:text-blue-600">
+						className="mx-1 text-blue-600 underline">
 						Create
 					</Link>
 					now

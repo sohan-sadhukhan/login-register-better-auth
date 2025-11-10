@@ -38,6 +38,8 @@ const RegisterForm = () => {
 		if (isSuccess) {
 			toast.success(message);
 
+			rForm.reset();
+
 			push("/auth/login");
 		}
 	};
@@ -57,7 +59,7 @@ const RegisterForm = () => {
 								{...field}
 								id="rForm-rhf-input-name"
 								aria-invalid={fieldState.invalid}
-								placeholder="Name"
+								placeholder="Enter your name"
 								autoComplete="Name"
 							/>
 
@@ -76,7 +78,7 @@ const RegisterForm = () => {
 								{...field}
 								id="rForm-rhf-input-email"
 								aria-invalid={fieldState.invalid}
-								placeholder="Email"
+								placeholder="Enter your email"
 								autoComplete="Email"
 							/>
 
@@ -97,7 +99,7 @@ const RegisterForm = () => {
 								{...field}
 								id="rForm-rhf-input-password"
 								aria-invalid={fieldState.invalid}
-								placeholder="password"
+								placeholder="Enter your password"
 								autoComplete="password"
 							/>
 
@@ -118,7 +120,7 @@ const RegisterForm = () => {
 								{...field}
 								id="rForm-rhf-input-confirmPassword"
 								aria-invalid={fieldState.invalid}
-								placeholder="confirmPassword"
+								placeholder="Enter your confirm password"
 								autoComplete="confirmPassword"
 							/>
 
