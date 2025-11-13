@@ -3,7 +3,7 @@ import { LoginType } from "@/lib/type";
 
 const userSignIn = async ({ email, password }: LoginType) => {
 	try {
-		const { error } = await authClient.signIn.email({
+		const { error, data } = await authClient.signIn.email({
 			email,
 			password,
 		});
@@ -17,7 +17,7 @@ const userSignIn = async ({ email, password }: LoginType) => {
 
 		return {
 			isSuccess: true,
-			message: "User signed in successfully 🤗",
+			message: `Welcome ${data.user.name}🤗`,
 		};
 	} catch (error) {
 		console.log(error);

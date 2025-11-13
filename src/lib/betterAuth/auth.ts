@@ -13,4 +13,8 @@ export const auth = betterAuth({
 		requireEmailVerification: false,
 		autoSignIn: false,
 	},
+
+	advanced: {
+		cookiePrefix: "authlrba",
+	},
 });
