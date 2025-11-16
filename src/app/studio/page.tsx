@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-	title: "Nextjs Starter Frontend",
-	description: "Production grade Next.js starter template",
+	title: "Dashboard | Login-Register-Better-Auth",
+	description: "Dashboard page of Login-Register-Better-Auth",
 };
 
 const page = () => {

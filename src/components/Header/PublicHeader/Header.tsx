@@ -1,5 +1,7 @@
 import ThemeToggleButton from "@/components/ThemeToggleButton";
 import Link from "next/link";
+import { Suspense } from "react";
+import AuthNavLinks from "./AuthNavLinks";
 
 const Header = () => {
 	return (
@@ -16,17 +18,9 @@ const Header = () => {
 				</Link>
 
 				<nav className="flex items-center gap-8">
-					<Link
-						href={"/auth/login"}
-						className="font-medium hover:text-white/85">
-						Login
-					</Link>
-
-					<Link
-						href={"/auth/register"}
-						className="font-medium hover:text-white/85">
-						Register
-					</Link>
+					<Suspense fallback={<div>Loading...</div>}>
+						<AuthNavLinks />
+					</Suspense>
 
 					<ThemeToggleButton />
 				</nav>
