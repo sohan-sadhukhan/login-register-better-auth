@@ -9,10 +9,12 @@
 		"lint": "eslint",
 		"prod": "eslint && next build && next start",
 		"migrate": "prisma migrate dev",
-		"studio": "prisma studio --browser none"
+		"studio": "prisma studio --browser none",
+		"reset": "prisma migrate reset"
 	},
 	"dependencies": {
 		"@hookform/resolvers": "^5.2.2",
+		"@node-rs/argon2": "^2.0.2",
 		"@prisma/client": "^6.18.0",
 		"@radix-ui/react-label": "^2.1.8",
 		"@radix-ui/react-separator": "^1.1.8",
