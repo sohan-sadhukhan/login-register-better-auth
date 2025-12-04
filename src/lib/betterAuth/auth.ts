@@ -26,4 +26,17 @@ export const auth = betterAuth({
 			generateId: false,
 		},
 	},
+	user: {
+		changeEmail: {
+			enabled: true,
+			updateEmailWithoutVerification: true,
+		},
+		deleteUser: {
+			enabled: true,
+		},
+	},
+
+	session: {
+		expiresIn: 60 * 60,
+	},
 });

@@ -27,8 +27,6 @@ const RegisterForm = () => {
 	});
 
 	const registerHandeler = async (rData: RegisterType) => {
-		await new Promise((r) => setTimeout(r, 1500));
-
 		const { isSuccess, message } = await userSignUp(rData);
 
 		if (!isSuccess) {
@@ -93,7 +91,7 @@ const RegisterForm = () => {
 					render={({ field, fieldState }) => (
 						<Field data-invalid={fieldState.invalid}>
 							<FieldLabel htmlFor="rForm-rhf-input-password">
-								password
+								Password
 							</FieldLabel>
 							<Input
 								{...field}
@@ -101,6 +99,7 @@ const RegisterForm = () => {
 								aria-invalid={fieldState.invalid}
 								placeholder="Enter your password"
 								autoComplete="password"
+								type="password"
 							/>
 
 							{fieldState.invalid && <FieldError errors={[fieldState.error]} />}

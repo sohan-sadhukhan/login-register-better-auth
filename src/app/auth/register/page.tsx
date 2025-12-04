@@ -11,7 +11,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-	title: "Register | Login-Register-Better-Auth",
+	title: "Register | Auth App",
 	description:
 		"Register to your account with the authentication system built using Better Auth.",
 };

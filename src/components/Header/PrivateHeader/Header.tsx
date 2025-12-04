@@ -1,11 +1,12 @@
 import LogoutButton from "@/components/customui/LogoutButton";
 import ThemeToggleButton from "@/components/ThemeToggleButton";
+import { SettingsIcon } from "lucide-react";
 import Link from "next/link";
 
 const Header = () => {
 	return (
 		<header
-			className="fixed right-0 left-0 border-b shadow"
+			className="fixed right-0 left-0 border-b shadow backdrop-blur-2xl"
 			aria-label="app-header">
 			<div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
 				<Link href={"/"}>
@@ -18,6 +19,10 @@ const Header = () => {
 
 				<nav className="flex items-center gap-4">
 					<Link href={"/studio"}>Dashbord</Link>
+
+					<Link href={"/studio/settings"}>
+						<SettingsIcon />
+					</Link>
 
 					<LogoutButton />
 

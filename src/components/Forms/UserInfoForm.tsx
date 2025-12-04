@@ -12,7 +12,7 @@ import { Button } from "../shadcnui/button";
 import { Field, FieldError, FieldGroup, FieldLabel } from "../shadcnui/field";
 import { Input } from "../shadcnui/input";
 
-const LoginForm = () => {
+const UserInfoForm = () => {
 	const { push } = useRouter();
 
 	const lForm = useForm<LoginType>({
@@ -69,7 +69,7 @@ const LoginForm = () => {
 					render={({ field, fieldState }) => (
 						<Field data-invalid={fieldState.invalid}>
 							<FieldLabel htmlFor="lForm-rhf-input-password">
-								Password
+								password
 							</FieldLabel>
 							<Input
 								{...field}
@@ -77,7 +77,6 @@ const LoginForm = () => {
 								aria-invalid={fieldState.invalid}
 								placeholder="Enter your password"
 								autoComplete="password"
-								type="password"
 							/>
 
 							{fieldState.invalid && <FieldError errors={[fieldState.error]} />}
@@ -105,4 +104,4 @@ const LoginForm = () => {
 	);
 };
 
-export default LoginForm;
+export default UserInfoForm;

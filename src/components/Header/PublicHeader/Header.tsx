@@ -1,9 +1,13 @@
 import ThemeToggleButton from "@/components/ThemeToggleButton";
+import { auth } from "@/lib/betterAuth/auth";
+import { headers } from "next/headers";
 import Link from "next/link";
-import { Suspense } from "react";
-import AuthNavLinks from "./AuthNavLinks";
 
-const Header = () => {
+const Header = async () => {
+	const session = await auth.api.getSession({
+		headers: await headers(),
+	});
+
 	return (
 		<header
 			className="fixed right-0 left-0 border-b shadow"
@@ -18,9 +22,29 @@ const Header = () => {
 				</Link>
 
 				<nav className="flex items-center gap-8">
-					<Suspense fallback={<div>Loading...</div>}>
-						<AuthNavLinks />
-					</Suspense>
+					{!session && (
+						<div className="flex items-center gap-6">
+							<Link
+								href={"/auth/login"}
+								className="font-medium dark:hover:text-white/85">
+								Login
+							</Link>
+
+							<Link
+								href={"/auth/register"}
+								className="font-medium dark:hover:text-white/85">
+								Register
+							</Link>
+						</div>
+					)}
+
+					{session && (
+						<Link
+							href={"/studio"}
+							className="font-medium">
+							Dashboard
+						</Link>
+					)}
 
 					<ThemeToggleButton />
 				</nav>
