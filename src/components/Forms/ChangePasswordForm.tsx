@@ -62,7 +62,7 @@ const ChangePasswordForm = () => {
 								{...field}
 								id={field.name}
 								aria-invalid={fieldState.invalid}
-								placeholder="Enter your current Password"
+								placeholder="Enter your current password"
 								autoComplete="currentPassword"
 								type="password"
 							/>
@@ -85,7 +85,7 @@ const ChangePasswordForm = () => {
 								{...field}
 								id={field.name}
 								aria-invalid={fieldState.invalid}
-								placeholder="Enter your New Password"
+								placeholder="Enter your new password"
 								autoComplete="newPassword"
 								type="password"
 							/>
@@ -108,7 +108,7 @@ const ChangePasswordForm = () => {
 								{...field}
 								id={field.name}
 								aria-invalid={fieldState.invalid}
-								placeholder="Enter confirm Password"
+								placeholder="Enter confirm password"
 								autoComplete="confirmNewPassword"
 							/>
 
