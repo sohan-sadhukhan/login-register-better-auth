@@ -38,7 +38,7 @@ const RegisterForm = () => {
 
 			rForm.reset();
 
-			push("/studio");
+			push("/auth/login");
 		}
 	};
 	return (
