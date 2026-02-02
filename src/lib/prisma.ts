@@ -1,9 +1,20 @@
-// lib/prisma.ts
-
+import { PrismaLibSql } from "@prisma/adapter-libsql";
+import "dotenv/config";
 import { PrismaClient } from "../../generated/prisma/client";
+import { serverEnv } from "./env/serverEnv";
 
-const globalForPrisma = global as unknown as { prisma: PrismaClient };
+const globalForPrisma = globalThis as unknown as {
+	prisma?: PrismaClient;
+};
 
-export const prisma = globalForPrisma.prisma || new PrismaClient();
+const adapter = new PrismaLibSql({
+	url: serverEnv.DATABASE_URL,
+});
 
-if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
+const prisma = globalForPrisma.prisma ?? new PrismaClient({ adapter });
+
+if (process.env.NODE_ENV !== "production") {
+	globalForPrisma.prisma = prisma;
+}
+
+export default prisma;
